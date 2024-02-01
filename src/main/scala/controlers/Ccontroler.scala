@@ -5,18 +5,18 @@ import com.sun.javafx.geom.BaseBounds.BoundsType
 import javafx.animation.{FillTransition, Transition}
 import javafx.beans.InvalidationListener
 import javafx.collections.{ListChangeListener, ObservableList}
+import javafx.event.Event
 import javafx.fxml.FXML
-import javafx.scene.control.{Button, CheckBox, ChoiceBox, ComboBox, ScrollPane}
+import javafx.scene.control.{Button, CheckBox, ChoiceBox, ComboBox, ListView, ScrollPane, TextField}
 import javafx.scene.effect.DropShadow
 import javafx.scene.image.{Image, ImageView}
 import javafx.scene.input.MouseEvent
 import javafx.scene.layout.{AnchorPane, Background, BackgroundImage, BackgroundPosition, BackgroundRepeat, BackgroundSize, HBox, Pane, VBox}
 import javafx.scene.paint.{Color, Paint}
 import javafx.scene.shape.{Rectangle, StrokeType}
-import javafx.scene.text.{Font, Text}
+import javafx.scene.text.{Font, FontWeight, Text}
 import javafx.util.Duration
 import scalafx.collections.ObservableBuffer
-import scalafx.scene.control.TextField
 import scalafxml.core.macros.sfxml
 import net.kender.Kjson.ConfigFile
 import net.k3nder.launchertrinity.json.parser.launcher.profiles
@@ -64,26 +64,45 @@ class Ccontroler(@FXML private var imageView: ImageView,
                  @FXML private var VERSIONS_SNAPSHOTS: CheckBox,
                  @FXML private var VERSIONS_MODs: CheckBox,
                  @FXML private var PROFILE_VERSIONS_TEXT: Text,
-                 @FXML private var PROFILE_LIST: VBox,
-                 @FXML private var PROFILE_NEW: Button,
-                 @FXML private var USERNAME: Text
+                 /*@FXML private var PROFILE_LIST: ListView[Pane]*/
+                 /*@FXML private var PROFILE_NEW: Button,*/
+                 @FXML private var USERNAME: Text,
+                 @FXML private var PROFILE_GET: Pane,
+                 @FXML private var PROFILE_ICON_GET: ComboBox[ImageView],
+                 @FXML private var PROFILE_NAME_GET: TextField,
+                 @FXML private var PROFILE_VERSION_GET: ComboBox[String],
+                 @FXML private var PROFILE_GAMEDIR_GET: TextField,
+                 @FXML private var PROFILE_GET_SAVE: Button,
+                 @FXML private var PROFILE_GET_CANCEL: Button,
+                 @FXML private var SC_PANE_PROFILE: ScrollPane
                 )
                 {
-                  var property: Properties = new Properties();
+                  private var property: Properties = new Properties();
                   property.load(getClass.getResourceAsStream("/net/k3nder/launchertrinity/settings/settings.properties"))
+
+
 
                   SKINS_INDICATOR.setFill(Color.TRANSPARENT)
                   INSTALL_INDICATOR.setFill(Color.TRANSPARENT)
                   PLAY_INDICATOR.setFill(Color.TRANSPARENT)
                   UPPAT_INDICATOR.setFill(Color.TRANSPARENT)
 
+                  SC_PANE_PROFILE.setFitToHeight(true)
+                  val PROFILE_LIST: VBox = new VBox();
+                  PROFILE_LIST.setSpacing(10)
+                  SC_PANE_PROFILE.setContent(PROFILE_LIST)
+                  //PROFILE_LIST.setStyle("-fx-background-color:  TRANSPARENT;")
+                  //SC_PANE_PROFILE.setStyle("opacity: 0.9 ;")
+
+
 
                   VERSION_NUMBER.setText(property.getProperty("version"));
 
                   val Profiles: ConfigFile = new ConfigFile(new File("C:\\Users\\krist\\AppData\\Roaming\\.minecraft\\trinity_profiles.json"));
-                  var prof: java.util.List[profile] = Profiles.getArrayList("profiles",classOf[profile]);
+                  private var prof: java.util.List[profile] = Profiles.getArrayList("profiles",classOf[profile]);
                   for(p: profile <- prof.asScala){
                     val pane: AnchorPane = new AnchorPane();
+                    println(p.lastVersionId)
                     pane.setPrefWidth(50)
                     pane.setPrefHeight(850)
                     pane.setStyle("-fx-background-color: #333333; -fx-border-color: #434343;")
@@ -120,24 +139,59 @@ class Ccontroler(@FXML private var imageView: ImageView,
                     buttons.prefWidth(215)
                     buttons.setVisible(false)
 
+                    val play_button:Button = new Button("PLAY")
+                    play_button.setLayoutY(82.0)
+                    play_button.setMnemonicParsing(false)
+                    play_button.setPrefHeight(25)
+                    play_button.setPrefWidth(69)
+                    play_button.setStyle("-fx-background-color: cyan;")
+
+                    // Configuración del segundo botón
+                    val open_dir_button: Button = new Button()
+                    open_dir_button.setLayoutX(122.0)
+                    open_dir_button.setLayoutY(3.0)
+                    open_dir_button.setPrefHeight(25.0)
+                    open_dir_button.setPrefWidth(31.0)
+                    open_dir_button.setRotate(90.0)
+                    open_dir_button.setStyle("-fx-background-color: TRANSPARENT; -fx-border-color: #434343;")
+                    open_dir_button.setText(". . .")
+                    open_dir_button.setTextFill(Paint.valueOf("#ffffff"))
+                    //open_dir_button.setFont(new Font("System", FontWeight.BOLD, 12))
+
+                    val button1: Button = new Button()
+                    button1.setLayoutX(82.0)
+                    button1.setLayoutY(3.0)
+                    button1.setPrefHeight(25.0)
+                    button1.setPrefWidth(31.0)
+                    button1.setStyle("-fx-background-color: TRANSPARENT; -fx-border-color: #434343;")
+
+                    buttons.getChildren.addAll(play_button,open_dir_button,button1)
+                    pane.setOnMouseEntered((event: Event) => {
+                      pane.setStyle("-fx-background-color: GREEN;")
+                    })
+                    pane.setOnMouseExited((event: Event) => {
+                      pane.setStyle("-fx-background-color: #1e1e1e;")
+                    })
+
                     pane.getChildren.addAll(name,version,buttons)
-                    PROFILE_LIST.setFillWidth(true)
+                    //PROFILE_LIST.setFillWidth(true)
                     layout.HBox.setHgrow(pane,javafx.scene.layout.Priority.ALWAYS)
                     PROFILE_LIST.getChildren.add(pane)
 
                   }
-                  PROFILE_LIST.setSpacing(10)
+
+                  //PROFILE_LIST.setSpacing(10)
 
 
 
 
                   // Cargar la fuente desde el archivo .ttf// Cargar la fuente desde el archivo .ttf// Cargar la fuente desde el archivo .ttf
 
-                  val customFont: Font = Font.loadFont(getClass.getResourceAsStream(property.getProperty("font")), 30)
+                  private val customFont: Font = Font.loadFont(getClass.getResourceAsStream(property.getProperty("font")), 30)
                   PLAY_BUTTON_TEXT.setFont(customFont)
                   PLAY_BUTTON_TEXT.setFill(Color.WHITE)
 
-                  val dropShadow = new DropShadow()
+                  private val dropShadow = new DropShadow()
                   dropShadow.setOffsetY(2.0)
                   dropShadow.setRadius(0.0)
                   dropShadow.setColor(javafx.scene.paint.Color.BLACK)
@@ -149,12 +203,31 @@ class Ccontroler(@FXML private var imageView: ImageView,
                   SETTINGS_ICON.setImage(new Image(getClass.getResourceAsStream("/net/k3nder/launchertrinity/assets/settings.png")))
 
                   PLAY_BUTTON.setBackground(new Background(new BackgroundImage(
-                    new Image(getClass.getResourceAsStream("/net/k3nder/launchertrinity/assets/button_play.png")),
+                    new Image(getClass.getResourceAsStream("/net/k3nder/launchertrinity/assets/buttons/play_button.png")),
                     BackgroundRepeat.NO_REPEAT,
                     BackgroundRepeat.NO_REPEAT,
                     BackgroundPosition.DEFAULT,
                     new BackgroundSize(100, 100, true, true, true, false)
                   )))
+                  PLAY_BUTTON.setOnMouseEntered((event: Event) => {
+                    println("play drag");
+                    PLAY_BUTTON.setBackground(new Background(new BackgroundImage(
+                      new Image(getClass.getResourceAsStream("/net/k3nder/launchertrinity/assets/buttons/play_button_pressed.png")),
+                      BackgroundRepeat.NO_REPEAT,
+                      BackgroundRepeat.NO_REPEAT,
+                      BackgroundPosition.DEFAULT,
+                      new BackgroundSize(100, 100, true, true, true, false)
+                    )))
+                  })
+                  PLAY_BUTTON.setOnMouseExited((event: Event) =>{
+                    PLAY_BUTTON.setBackground(new Background(new BackgroundImage(
+                      new Image(getClass.getResourceAsStream("/net/k3nder/launchertrinity/assets/buttons/play_button.png")),
+                      BackgroundRepeat.NO_REPEAT,
+                      BackgroundRepeat.NO_REPEAT,
+                      BackgroundPosition.DEFAULT,
+                      new BackgroundSize(100, 100, true, true, true, false)
+                    )))
+                  })
                  IMG_GAME.setPreserveRatio(false)
                   IMG_GAME.setFitHeight(600)
 
@@ -192,6 +265,9 @@ class Ccontroler(@FXML private var imageView: ImageView,
 
                     PANE_INSTALLATIONS.setDisable(true)
                     PANE_INSTALLATIONS.setVisible(false)
+
+                    PROFILE_GET.setDisable(true)
+                    PROFILE_GET.setVisible(false)
                   })
                   setIndicator(TEXT_INSTALATIONS, INSTALL_INDICATOR,() => {
                     print("Instalations")
@@ -203,6 +279,9 @@ class Ccontroler(@FXML private var imageView: ImageView,
 
                     PANE_INSTALLATIONS.setDisable(false)
                     PANE_INSTALLATIONS.setVisible(true)
+
+                    PROFILE_GET.setDisable(true)
+                    PROFILE_GET.setVisible(false)
                   })
                   setIndicator(TEXT_UPDATE_PATCH, UPPAT_INDICATOR, () => {
                     print("play");
@@ -210,6 +289,15 @@ class Ccontroler(@FXML private var imageView: ImageView,
                     INSTALL_INDICATOR.setFill(Color.TRANSPARENT)
                     PLAY_INDICATOR.setFill(Color.TRANSPARENT)
                   })
+
+                  //PROFILE_NEW.setOnAction((event: Event) => {
+                  //  PANE_GAME.setDisable(true)
+                  //  PANE_GAME.setVisible(false)
+                  //  PANE_INSTALLATIONS.setDisable(true)
+                  //  PANE_INSTALLATIONS.setVisible(false)
+                  //  PROFILE_GET.setDisable(false)
+                  //  PROFILE_GET.setVisible(true)
+                  //})
 
                   PROFILE_SELECTOR.setStyle("-fx-background-color: TRANSPARENT;")
                   val observableList: ObservableBuffer[Pane] = ObservableBuffer()
@@ -236,7 +324,7 @@ class Ccontroler(@FXML private var imageView: ImageView,
 
                     // Establecer el color de inicio y el color de destino
                     fillTransition.setFromValue(Color.TRANSPARENT)
-                    fillTransition.setToValue(Color.GREEN)
+                    fillTransition.setToValue(Color.CYAN)
 
                     text.setOnMouseClicked((event: MouseEvent) => {
                       fillTransition.play()

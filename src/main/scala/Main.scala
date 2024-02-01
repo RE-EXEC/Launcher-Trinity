@@ -21,13 +21,14 @@ import java.util
 object Main extends JFXApp3 {
   override def start(): Unit = {
     StartSettings()
-    val resource = new URL("file:///C:\\Users\\krist\\Desktop\\untitled\\src\\main\\scala\\controlers\\fxml\\pane.fxml");
+    val resource = getClass.getResource("controlers/fxml/pane.fxml")
 
     val root = FXMLView(resource, NoDependencyResolver)
 
     stage = new JFXApp3.PrimaryStage() {
       title = "Launcher Trinity"
       scene = new Scene(root)
+
     }
   }
 
