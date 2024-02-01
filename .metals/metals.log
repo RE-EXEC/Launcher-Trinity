@@ -1,0 +1,17 @@
+2024.01.29 17:56:28 INFO  tracing is disabled for protocol LSP, to enable tracing of incoming and outgoing JSON messages create an empty file at c:\Users\krist\Desktop\untitled\.metals\lsp.trace.json
+2024.01.29 17:56:30 INFO  logging to files C:\Users\krist\Desktop\untitled\.metals\metals.log
+2024.01.29 17:56:30 INFO  Started: Metals version 1.2.0+12-644090c2-SNAPSHOT in folders 'C:\Users\krist\Desktop\untitled' for client Visual Studio Code 1.85.2.
+2024.01.29 17:56:31 WARN  Build server is not auto-connectable.
+2024.01.29 17:56:31 WARN  no build target for: C:\Users\krist\Desktop\untitled\build.sbt
+2024.01.29 17:56:31 WARN  no build target for: C:\Users\krist\Desktop\untitled\src\main\scala\Main.scala
+2024.01.29 17:56:31 WARN  no build target for: C:\Users\krist\Desktop\untitled\src\main\scala\json\parser\profile.scala
+2024.01.29 17:56:31 WARN  no build target for: C:\Users\krist\Desktop\untitled\src\main\scala\json\parser\launcher\profiles.scala
+2024.01.29 17:56:31 WARN  no build target for: C:\Users\krist\Desktop\untitled\src\main\scala\settings\setting.scala
+2024.01.29 17:56:31 WARN  no build target for: C:\Users\krist\Desktop\untitled\project\plugins.sbt
+2024.01.29 17:56:31 WARN  no build target for: C:\Users\krist\Desktop\untitled\src\main\scala\settings\Group.scala
+2024.01.29 17:56:31 WARN  no build target for: C:\Users\krist\Desktop\untitled\src\main\scala\controlers\Ccontroler.scala
+2024.01.29 17:56:39 INFO  no build target found for C:\Users\krist\Desktop\untitled\build.sbt. Using presentation compiler with project's scala-library version: 3.3.1
+2024.01.29 17:56:42 INFO  time: code lens generation in 7.17s
+2024.01.29 17:57:31 INFO  Shutting down server
+2024.01.29 17:57:31 INFO  shutting down Metals
+2024.01.29 17:57:31 INFO  Exiting server
