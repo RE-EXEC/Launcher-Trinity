@@ -37,3 +37,7 @@ ScrollPane {
     -fx-background-color: transparent;
 }
 ScrollPane .viewport { -fx-background:  #333333; }
+#profile_new {
+    -fx-background-color: #333333;
+    -fx-border-color: cyan;
+}

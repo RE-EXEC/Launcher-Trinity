@@ -7,7 +7,7 @@ libraryDependencies += "io.github.k3nder" % "mclc" % "0.3.0"
 // https://mvnrepository.com/artifact/io.github.k3nder/log5k
 libraryDependencies += "io.github.k3nder" % "log5k" % "1.2.2"
 // https://mvnrepository.com/artifact/io.github.k3nder/kjson
-libraryDependencies += "io.github.k3nder" % "kjson" % "0.2.7"
+libraryDependencies += "io.github.k3nder" % "kjson" % "0.2.6"
 
 
 scalacOptions ++= Seq("-unchecked", "-deprecation", "-Xcheckinit", "-encoding", "utf8", "-Ymacro-annotations")

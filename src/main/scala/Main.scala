@@ -6,9 +6,11 @@ import javafx.fxml.FXMLLoader
 import javafx.scene.Parent
 import javafx.scene.layout.Pane
 import javafx.stage.Stage
-import net.k3nder.launchertrinity.controlers.Ccontroler
+import net.k3nder.launchertrinity.controlers.Controller
 import net.k3nder.launchertrinity.settings.setting
 import net.kender.Kjson.ConfigFile
+import net.kender.logger.log5k.Logger
+import net.kender.logger.log5k.conf.log5kConf
 import scalafx.application.{JFXApp, JFXApp3}
 import scalafx.scene.Scene
 import scalafx.Includes._
@@ -20,6 +22,7 @@ import java.util
 
 object Main extends JFXApp3 {
   override def start(): Unit = {
+    Logger.config = new log5kConf(getClass.getResourceAsStream("controlers/logger.properties"));
     StartSettings()
     val resource = getClass.getResource("controlers/fxml/pane.fxml")
 

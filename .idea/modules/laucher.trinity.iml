@@ -16,7 +16,7 @@
     <orderEntry type="library" name="sbt: com.fasterxml.jackson.core:jackson-core:2.16.0:jar" level="project" />
     <orderEntry type="library" name="sbt: com.fasterxml.jackson.core:jackson-databind:2.16.0:jar" level="project" />
     <orderEntry type="library" name="sbt: commons-io:commons-io:2.15.1:jar" level="project" />
-    <orderEntry type="library" name="sbt: io.github.k3nder:kjson:0.2.7:jar" level="project" />
+    <orderEntry type="library" name="sbt: io.github.k3nder:kjson:0.2.6:jar" level="project" />
     <orderEntry type="library" name="sbt: io.github.k3nder:kutils:0.2.0:jar" level="project" />
     <orderEntry type="library" name="sbt: io.github.k3nder:log5k:1.2.2:jar" level="project" />
     <orderEntry type="library" name="sbt: io.github.k3nder:mclc:0.3.0:jar" level="project" />

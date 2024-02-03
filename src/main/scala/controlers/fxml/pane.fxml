@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane id="cpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="715.0" prefWidth="1280.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.k3nder.launchertrinity.controlers.Ccontroler">
+<Pane id="cpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="715.0" prefWidth="1280.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.k3nder.launchertrinity.controlers.Controller">
    <children>
       <Pane id="lateralpane" fx:id="MENU_PANE" prefHeight="715.0" prefWidth="210.0">
          <children>
@@ -65,7 +65,7 @@
             <HBox fx:id="QUIKPLAYS" layoutX="693.0" layoutY="3.0" prefHeight="48.0" prefWidth="342.0" />
          </children>
       </Pane>
-      <Pane fx:id="PANE_GAME" disable="true" layoutX="208.0" layoutY="103.0" prefHeight="612.0" prefWidth="1074.0" visible="false">
+      <Pane fx:id="PANE_GAME" layoutX="208.0" layoutY="103.0" prefHeight="612.0" prefWidth="1074.0">
          <children>
             <ImageView fx:id="IMG_GAME" fitHeight="509.0" fitWidth="1074.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true" />
             <Pane id="top_pane" fx:id="BOTTOM_PANE" layoutX="-4.0" layoutY="539.0" prefHeight="73.0" prefWidth="1083.0">
@@ -78,7 +78,7 @@
                   </Text>
                </children>
             </Pane>
-            <Button fx:id="PLAY_BUTTON" layoutX="450.0" layoutY="508.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="290.0" />
+            <Button fx:id="PLAY_BUTTON" layoutX="450.0" layoutY="508.0" mnemonicParsing="false" onAction="#PLAYA" prefHeight="63.0" prefWidth="290.0" />
             <Text fx:id="PLAY_BUTTON_TEXT" layoutX="535.0" layoutY="551.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PLAY" wrappingWidth="120.53668212890625">
                <font>
                   <Font size="30.0" />
@@ -86,7 +86,7 @@
             </Text>
          </children>
       </Pane>
-      <Pane fx:id="PANE_INSTALLATIONS" layoutX="207.0" layoutY="103.0" prefHeight="612.0" prefWidth="1074.0" style="-fx-background-color: #333333;">
+      <Pane fx:id="PANE_INSTALLATIONS" disable="true" layoutX="207.0" layoutY="103.0" prefHeight="612.0" prefWidth="1074.0" style="-fx-background-color: #333333;" visible="false">
          <children>
             <Pane prefHeight="95.0" prefWidth="1074.0" style="-fx-background-color: #333333; -fx-border-color: #484848;">
                <children>
@@ -127,6 +127,7 @@
                </children>
             </Pane>
             <ScrollPane fx:id="SC_PANE_PROFILE" hbarPolicy="NEVER" layoutX="128.0" layoutY="127.0" prefHeight="485.0" prefWidth="816.0" vbarPolicy="NEVER" />
+            <Button id="profile_new" fx:id="PROFILE_NEW" layoutX="49.0" layoutY="115.0" mnemonicParsing="false" text="add profile" textFill="WHITE" />
          </children>
       </Pane>
       <Pane id="cpane" fx:id="PROFILE_GET" disable="true" layoutX="210.0" layoutY="105.0" prefHeight="612.0" prefWidth="1074.0" stylesheets="@style.css" visible="false">
