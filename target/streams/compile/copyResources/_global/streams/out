@@ -1,0 +1,22 @@
+[0m[[0m[0mdebug[0m] [0m[0mCopy resource mappings: [0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\krist\Desktop\untitled\src\main\scala\Main.scala,C:\Users\krist\Desktop\untitled\target\scala-2.13\classes\Main.scala)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\krist\Desktop\untitled\src\main\scala\assets\index.json,C:\Users\krist\Desktop\untitled\target\scala-2.13\classes\assets\index.json)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\krist\Desktop\untitled\src\main\scala\controllers\Controller.scala,C:\Users\krist\Desktop\untitled\target\scala-2.13\classes\controllers\Controller.scala)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\krist\Desktop\untitled\src\main\scala\controllers\CPane.scala,C:\Users\krist\Desktop\untitled\target\scala-2.13\classes\controllers\CPane.scala)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\krist\Desktop\untitled\src\main\scala\controllers\Indicator.scala,C:\Users\krist\Desktop\untitled\target\scala-2.13\classes\controllers\Indicator.scala)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\krist\Desktop\untitled\src\main\scala\controllers\Log.scala,C:\Users\krist\Desktop\untitled\target\scala-2.13\classes\controllers\Log.scala)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\krist\Desktop\untitled\src\main\scala\controllers\logger.properties,C:\Users\krist\Desktop\untitled\target\scala-2.13\classes\controllers\logger.properties)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\krist\Desktop\untitled\src\main\scala\controllers\ObservableProfile.scala,C:\Users\krist\Desktop\untitled\target\scala-2.13\classes\controllers\ObservableProfile.scala)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\krist\Desktop\untitled\src\main\scala\controllers\settings.json,C:\Users\krist\Desktop\untitled\target\scala-2.13\classes\controllers\settings.json)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\krist\Desktop\untitled\src\main\scala\settings\Group.scala,C:\Users\krist\Desktop\untitled\target\scala-2.13\classes\settings\Group.scala)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\krist\Desktop\untitled\src\main\scala\settings\setting.scala,C:\Users\krist\Desktop\untitled\target\scala-2.13\classes\settings\setting.scala)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\krist\Desktop\untitled\src\main\scala\settings\settings.properties,C:\Users\krist\Desktop\untitled\target\scala-2.13\classes\settings\settings.properties)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\krist\Desktop\untitled\src\main\scala\controllers\font\font.ttf,C:\Users\krist\Desktop\untitled\target\scala-2.13\classes\controllers\font\font.ttf)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\krist\Desktop\untitled\src\main\scala\controllers\fxml\pane.fxml,C:\Users\krist\Desktop\untitled\target\scala-2.13\classes\controllers\fxml\pane.fxml)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\krist\Desktop\untitled\src\main\scala\controllers\fxml\profile_temple.fxml,C:\Users\krist\Desktop\untitled\target\scala-2.13\classes\controllers\fxml\profile_temple.fxml)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\krist\Desktop\untitled\src\main\scala\controllers\fxml\style.css,C:\Users\krist\Desktop\untitled\target\scala-2.13\classes\controllers\fxml\style.css)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\krist\Desktop\untitled\src\main\scala\json\parser\asset.scala,C:\Users\krist\Desktop\untitled\target\scala-2.13\classes\json\parser\asset.scala)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\krist\Desktop\untitled\src\main\scala\json\parser\LAssetIndex.scala,C:\Users\krist\Desktop\untitled\target\scala-2.13\classes\json\parser\LAssetIndex.scala)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\krist\Desktop\untitled\src\main\scala\json\parser\profile.scala,C:\Users\krist\Desktop\untitled\target\scala-2.13\classes\json\parser\profile.scala)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\krist\Desktop\untitled\src\main\scala\json\parser\resolution.scala,C:\Users\krist\Desktop\untitled\target\scala-2.13\classes\json\parser\resolution.scala)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\krist\Desktop\untitled\src\main\scala\json\parser\launcher\profiles.scala,C:\Users\krist\Desktop\untitled\target\scala-2.13\classes\json\parser\launcher\profiles.scala)[0m

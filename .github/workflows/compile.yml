@@ -1,0 +1,20 @@
+  on: push
+  name: compile
+
+  jobs:
+    compile:
+      runs-on: ubuntu-least
+      steps:
+        - name: Checkout of the code
+          uses: actions/checkout@v2
+        - name: configure Java
+          uses: actions/setup-java@v4
+          with:
+           distribution: "adopt"
+           java-version: "21"
+           java-package: "jdk+fx"
+        - name: assembly action
+          run: sbt assembly
+        - name: jpackage
+          run: jpackage --runtime-image $JAVA_HOME -t deb --app-version 0.0.0.0 --description desc -n appt --vendor vnd --main-jar .\artifacts\launcher-trinity-universal-1.0.0-openbeta1.jar --resource-dir ../  -i . --icon icon.ico --license-file LICENCE
+            

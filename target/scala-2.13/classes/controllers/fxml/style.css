@@ -1,0 +1,55 @@
+#cpane {
+    -fx-background-color:  #333333;
+    background-color: #333333;
+}
+Pane {
+    -fx-background-color:  #1e1e1e;
+    background-color: #1e1e1e;
+}
+Line {
+    -fx-fill: #1e1e1e;
+}
+TextField {
+    -fx-background-color: BLACK;
+    -fx-border-color: cyan;
+    background-color: black;
+    border-color: cyan;
+    -fx-text-fill: WHITE;
+    -fx-border-width: 2;
+    -fx-border-radius: 2;
+}
+ComboBox {
+    -fx-background-color: black;
+    background-color: black;
+    -fx-border-color: cyan;
+    border-color: cyan;
+    -fx-border-width: 2;
+    -fx-border-radius: 2;
+}
+#sp {
+    -fx-background-color: transparent;
+}
+#top_pane {
+    -fx-border-color: #1e1e1e;
+}
+ScrollPane {
+    -fx-background-color: transparent;
+}
+ScrollPane .viewport { -fx-background:  #333333; }
+#profile_new {
+    -fx-background-color: #333333;
+    -fx-border-color: cyan;
+}
+TextArea {
+    -fx-control-inner-background: #333333; /* Color de fondo */
+    -fx-text-fill: #FFFFFF; /* Color de texto */
+}
+TextArea .scroll-bar {
+    -fx-opacity: 0;
+}
+#PLAY_BUTTON .text {
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,1), 0, 2, 0, 0);
+}
+#profile_selector .cell{
+    -fx-text-fill: white;
+}

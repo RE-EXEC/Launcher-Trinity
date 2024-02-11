@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="sbt: io.github.k3nder:mclc:0.4.4:jar" external-system-id="SBT">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/AppData/Local/Coursier/cache/v1/https/s01.oss.sonatype.org/service/local/repositories/releases/content/io/github/k3nder/mclc/0.4.4/mclc-0.4.4.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/AppData/Local/Coursier/cache/v1/https/s01.oss.sonatype.org/service/local/repositories/releases/content/io/github/k3nder/mclc/0.4.4/mclc-0.4.4-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/AppData/Local/Coursier/cache/v1/https/s01.oss.sonatype.org/service/local/repositories/releases/content/io/github/k3nder/mclc/0.4.4/mclc-0.4.4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
