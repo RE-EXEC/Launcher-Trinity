@@ -1,0 +1,7 @@
+{
+    "play_button": "buttons/play_button.png",
+    "settings_button": "buttons/settings_button.png",
+    "play_button_pressed": "buttons/play_button_pressed.png",
+    "command_button": "buttons/command_button.png",
+    "panorama_img": "panorama.png"
+}
