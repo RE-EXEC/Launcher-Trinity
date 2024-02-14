@@ -1,20 +1,105 @@
-  on: push
-  name: compile
+on: push
+name: compile
 
-  jobs:
-    compile:
-      runs-on: ubuntu-least
-      steps:
-        - name: Checkout of the code
-          uses: actions/checkout@v2
-        - name: configure Java
-          uses: actions/setup-java@v4
-          with:
-           distribution: "adopt"
-           java-version: "21"
-           java-package: "jdk+fx"
-        - name: assembly action
-          run: sbt assembly
-        - name: jpackage
-          run: jpackage --runtime-image $JAVA_HOME -t deb --app-version 0.0.0.0 --description desc -n appt --vendor vnd --main-jar .\artifacts\launcher-trinity-universal-1.0.0-openbeta1.jar --resource-dir ../  -i . --icon icon.ico --license-file LICENCE
-            
+jobs:
+  compileLinuxDEB:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout of the code
+        uses: actions/checkout@v2
+      - name: configure Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: "temurin"
+          java-version: "21"
+          cache: "sbt"
+          cache-dependency-path: | # optional
+            build.sbt
+            project/build.properties
+            project/plugins.sbt
+      - name: verify sbt installing
+        run: sbt --version
+      - name: javafx jmods download
+        run: wget https://download2.gluonhq.com/openjfx/21.0.2/openjfx-21.0.2_linux-x64_bin-jmods.zip
+      - name: un-zip jmods
+        run: unzip openjfx-21.0.2_linux-x64_bin-jmods.zip
+      - name: jlink create
+        run: jlink --module-path javafx-jmods-21.0.2/ --add-modules ALL-MODULE-PATH --output JRE
+      - name: update clean etc, sbt
+        run: |
+          sbt removeclean
+          sbt update
+          sbt clean
+          sbt compile
+      - name: run application
+        continue-on-error: true
+        run: sbt run
+      - name: assembly action
+        run: sbt assembly
+      - name: jpackage deb
+        run: |
+          cd artifacts
+          jpackage --runtime-image ../JRE --type deb --app-version 1.0.0.1 --description desc -n "Launcher Trinity" --vendor k3nder --main-jar ./launcher-trinity-universal-1.0.0-openbeta1.jar --resource-dir . -i . --icon ../icons/icon.png
+      - name: Crear Release en GitHub
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            artifacts/*
+
+          tag_name: tag
+          name: tasges
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+      - name: ls
+        run: ls
+  compileLS:
+    runs-on: windows-latest
+    needs: compileLinuxDEB
+    steps:
+      - name: Checkout of the code
+        uses: actions/checkout@v2
+      - name: configure Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: "temurin"
+          java-version: "21"
+          cache: "sbt"
+          cache-dependency-path: | # optional
+            build.sbt
+            project/build.properties
+            project/plugins.sbt
+      - name: verify sbt installing
+        run: sbt --version
+      - name: javafx jmods download
+        run: wget https://download2.gluonhq.com/openjfx/21.0.2/openjfx-21.0.2_windows-x64_bin-jmods.zip
+      - name: un-zip jmods
+        run: unzip openjfx-21.0.2_windows-x64_bin-jmods.zip
+      - name: jlink create
+        run: jlink --module-path javafx-jmods-21.0.2/ --add-modules ALL-MODULE-PATH --output JRE
+      - name: update clean etc, sbt
+        run: |
+          sbt removeclean
+          sbt update
+          sbt clean
+          sbt compile
+      - name: run application
+        continue-on-error: true
+        run: sbt run
+      - name: assembly action
+        run: sbt assembly
+      - name: jpackage deb
+        run: |
+          cd artifacts
+          jpackage --runtime-image ../JRE --type exe --app-version 1.0.0.1 --description desc -n "Launcher Trinity" --vendor k3nder --main-jar ./launcher-trinity-universal-1.0.0-openbeta1.jar --resource-dir . -i . --icon ../icons/icon.png
+      - name: Crear Release en GitHub
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            artifacts/*
+
+          tag_name: tag
+          name: tasges
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+      - name: ls
+        run: ls
