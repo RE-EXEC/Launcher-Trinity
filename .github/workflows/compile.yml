@@ -38,7 +38,7 @@ jobs:
       - name: jpackage deb
         run: |
           cd artifacts
-          jpackage --runtime-image ../JRE --type deb --app-version 1.0.0.1 --description desc -n "Launcher Trinity" --vendor k3nder --main-jar ./launcher-trinity-universal-1.0.0-openbeta1.jar --resource-dir . -i . --icon ../icons/icon.png
+          jpackage --runtime-image ../JRE --type deb --app-version 1.0.0.1 --description desc -n "Launcher Trinity" --vendor k3nder --main-jar ./launcher-trinity-universal-1.0.0-openbeta1.jar --resource-dir . -i .
       - name: Crear Release en GitHub
         uses: softprops/action-gh-release@v1
         with:
@@ -89,7 +89,7 @@ jobs:
       - name: jpackage deb
         run: |
           cd artifacts
-          jpackage --runtime-image ../JRE --type exe --app-version 1.0.0.1 --description desc -n "Launcher Trinity" --vendor k3nder --main-jar ./launcher-trinity-universal-1.0.0-openbeta1.jar --resource-dir . -i . --icon ../icons/icon.png
+          jpackage --runtime-image ../JRE --type exe --app-version 1.0.0.1 --description desc -n "Launcher Trinity" --vendor k3nder --main-jar ./launcher-trinity-universal-1.0.0-openbeta1.jar --resource-dir . -i .
       - name: Crear Release en GitHub
         uses: softprops/action-gh-release@v1
         with:
