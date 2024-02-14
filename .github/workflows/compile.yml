@@ -27,7 +27,6 @@ jobs:
         run: jlink --module-path javafx-jmods-21.0.2/ --add-modules ALL-MODULE-PATH --output JRE
       - name: update clean etc, sbt
         run: |
-          sbt removeclean
           sbt update
           sbt clean
           sbt compile
@@ -79,7 +78,6 @@ jobs:
         run: jlink --module-path javafx-jmods-21.0.2/ --add-modules ALL-MODULE-PATH --output JRE
       - name: update clean etc, sbt
         run: |
-          sbt removeclean
           sbt update
           sbt clean
           sbt compile
